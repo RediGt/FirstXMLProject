@@ -53,7 +53,7 @@ namespace FirstXMLProject
             {
                 //Skip over CRLF
                 rdr.Read();
-                //Move to '<Employee>' element
+                //Move to '<Employee>' element 
                 rdr.Read();
                 if (rdr.LocalName.Equals("Employee") && rdr.NamespaceURI.Equals(""))
                 {
