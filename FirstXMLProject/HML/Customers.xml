@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Customer>
+	<Customers>
+		<CustomerId>1</CustomerId>
+		<Name>Microsoft</Name>
+		<Products>
+			<Product>
+				<ProductId>1</ProductId>
+				<Name>Word</Name>
+				<ReleaseDate>2013</ReleaseDate>
+			</Product>
+			<Product>
+				<ProductId>2</ProductId>
+				<Name>Excel</Name>
+				<ReleaseDate>2013</ReleaseDate>
+			</Product>
+		</Products>
+		<CustomerId>2</CustomerId>
+		<Name>PDSA</Name>
+		<Products>
+			<Product>
+				<ProductId>1</ProductId>
+				<Name>Developer Utilities</Name>
+				<ReleaseDate>2013</ReleaseDate>
+			</Product>
+			<Product>
+				<ProductId>2</ProductId>
+				<Name>Whatever</Name>
+				<ReleaseDate>2014</ReleaseDate>
+			</Product>
+		</Products>
+	</Customers>
+</Customer>
