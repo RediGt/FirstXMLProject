@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="bttSimplePros" Content="SimpleProcessing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="166" Margin="62,32,0,0" Height="32" Click="bttSimplePros_Click"/>
-        <TextBox x:Name="tBoxResult" HorizontalAlignment="Left" Height="289" Margin="10,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413"/>
+        <Button x:Name="bttSimplePros" Content="SimpleProcessing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="453,44,0,0" Height="32" Click="bttSimplePros_Click"/>
+        <TextBox x:Name="tBoxResult" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413"/>
+        <Button x:Name="bttMoveToCont" Content="Move To Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="453,97,0,0" Height="32" Click="bttMoveToCont_Click"/>
 
     </Grid>
 </Window>

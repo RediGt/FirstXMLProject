@@ -81,6 +81,7 @@ namespace FirstXMLProject
         public static string GetEmployeesFile()
         {
             string file;
+            //file = Directory.GetCurrentDirectory();
             file = @"C:\Users\2nd_PC\source\repos\FirstXMLProject\FirstXMLProject"; //Directory .GetCurrentDirectory();
             file += @"\HML\Employees.xml";
 
@@ -90,6 +91,7 @@ namespace FirstXMLProject
         public static string GetEmployeesSchemaFile()
         {
             string file;
+            file = Directory.GetCurrentDirectory();
             file = @"C:\Users\2nd_PC\source\repos\FirstXMLProject\FirstXMLProject"; //Directory.GetCurrentDirectory();
             file += @"\HML\Employees.xsd";
 
@@ -99,7 +101,9 @@ namespace FirstXMLProject
         private StringBuilder ReadEmployeeDetails(XmlReader rdr)
         {
             StringBuilder sb = new StringBuilder();
-            
+            sb.Append("One-by-one simple read");
+            sb.Append(Environment.NewLine);
+
             //Skip over CRLF (Carriage Return / Line Feed)
             rdr.Read();
             //Move to '<id>' Element               
@@ -140,8 +144,81 @@ namespace FirstXMLProject
                 sb.Append("Can't find <FirstName> Element");
                 sb.Append(Environment.NewLine);
             }
-
             return sb;
+        }
+
+        private void bttMoveToCont_Click(object sender, RoutedEventArgs e)
+        {
+            MoveToContent();
+        }
+
+        private void MoveToContent()
+        {
+            StringBuilder sb = new StringBuilder(512);
+            XmlReader rdr;
+
+            sb.Append("MoveToContent mathod");
+            sb.Append(Environment.NewLine);
+            //Open XmlReader
+            rdr = XmlReader.Create(GetEmployeesFile());
+            //Move to <Employees> element using XmlReader method
+            rdr.MoveToContent();
+            
+            if (rdr.LocalName.Equals("Employees"))
+            {
+                //Move to the next line
+                rdr.Read();
+                //Move to <Employee> element using XmlReader method
+                rdr.MoveToContent();
+
+                if (rdr.LocalName.Equals("Employee"))
+                {
+                    //Move to the next line
+                    rdr.Read();
+                    //Move to <id> element using XmlReader method
+                    rdr.MoveToContent();
+                    if (rdr.LocalName.Equals("id"))
+                    {
+                        //Move to the value of <id>
+                        rdr.Read();
+                        sb.AppendFormat("id={0}", rdr.Value);
+                        sb.Append(Environment.NewLine);
+                        rdr.Read();
+                    }
+                    else
+                    {
+                        sb.Append("Can't find <id> Element");
+                        sb.Append(Environment.NewLine);
+                    }
+
+                    rdr.Read();
+                    //Move to '<FirstName>' Element               
+                    rdr.MoveToContent();
+                    if (rdr.LocalName.Equals("FirstName"))
+                    {
+                        //Move to the value of <FirstName>
+                        rdr.Read();
+                        sb.AppendFormat("FirstName={0}", rdr.Value);
+                        sb.Append(Environment.NewLine);                     
+                    }
+                    else
+                    {
+                        sb.Append("Can't find <FirstName> Element");
+                        sb.Append(Environment.NewLine);
+                    }
+                    //Read to the end - skip the rest of document
+                    while (rdr.Read()) ;
+                }
+            }
+            else
+            {
+                sb.Append("Can't find <Employees> Element");
+                sb.Append(Environment.NewLine);
+            }
+            rdr.Close();
+            rdr.Dispose();
+
+            tBoxResult.Text = sb.ToString();
         }
     }
 }
