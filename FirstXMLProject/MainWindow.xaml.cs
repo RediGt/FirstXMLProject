@@ -81,7 +81,7 @@ namespace FirstXMLProject
         public static string GetEmployeesFile()
         {
             string file;
-            file = @"C:\Users\2nd_PC\source\repos\FirstXMLProject\FirstXMLProject"; //Directory.GetCurrentDirectory();
+            file = @"C:\Users\2nd_PC\source\repos\FirstXMLProject\FirstXMLProject"; //Directory .GetCurrentDirectory();
             file += @"\HML\Employees.xml";
 
             return file;
