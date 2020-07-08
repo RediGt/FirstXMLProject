@@ -10,6 +10,8 @@
         <Button x:Name="bttSimplePros" Content="SimpleProcessing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="453,44,0,0" Height="32" Click="bttSimplePros_Click"/>
         <TextBox x:Name="tBoxResult" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413"/>
         <Button x:Name="bttMoveToCont" Content="Move To Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="453,97,0,0" Height="32" Click="bttMoveToCont_Click"/>
+        <Button x:Name="bttReadStartElement" Content="Read Start Element" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="453,153,0,0" Height="32" Click="bttReadStartElement_Click"/>
+        <Button x:Name="bttReadElementStr" Content="Read Element Srting" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="453,211,0,0" Height="32" Click="bttReadElementStr_Click"/>
 
     </Grid>
 </Window>

@@ -157,7 +157,7 @@ namespace FirstXMLProject
             StringBuilder sb = new StringBuilder(512);
             XmlReader rdr;
 
-            sb.Append("MoveToContent mathod");
+            sb.Append("MoveToContent method");
             sb.Append(Environment.NewLine);
             //Open XmlReader
             rdr = XmlReader.Create(GetEmployeesFile());
@@ -215,6 +215,74 @@ namespace FirstXMLProject
                 sb.Append("Can't find <Employees> Element");
                 sb.Append(Environment.NewLine);
             }
+            rdr.Close();
+            rdr.Dispose();
+
+            tBoxResult.Text = sb.ToString();
+        }
+
+        private void bttReadStartElement_Click(object sender, RoutedEventArgs e)
+        {
+            ReadStartElement();
+        }
+
+        private void ReadStartElement()
+        {
+            StringBuilder sb = new StringBuilder(512);
+            XmlReader rdr;
+
+            sb.Append("ReadStartElement method");
+            sb.Append(Environment.NewLine);
+            //Open XmlReader
+            rdr = XmlReader.Create(GetEmployeesFile());
+            //ReadStartElement checkes the current node and reads the next one
+            rdr.ReadStartElement("Employees");
+            rdr.ReadStartElement("Employee");
+            rdr.ReadStartElement("id");
+            sb.AppendFormat("id={0}", rdr.Value);
+            sb.Append(Environment.NewLine);
+
+            //Read past the Text node
+            rdr.Read();
+            //Move past the </id> element
+            rdr.ReadEndElement();
+            //Read <FirstName> element
+            rdr.ReadStartElement("FirstName");
+            sb.AppendFormat("FirstName={0}", rdr.Value);
+            sb.Append(Environment.NewLine);
+
+            //Reads to the end, skips the rest of document
+            while (rdr.Read());
+            rdr.Close();
+            rdr.Dispose();
+
+            tBoxResult.Text = sb.ToString();
+        }
+
+        private void bttReadElementStr_Click(object sender, RoutedEventArgs e)
+        {
+            ReadElementString();
+        }
+
+        private void ReadElementString()
+        {
+            StringBuilder sb = new StringBuilder();
+            XmlReader rdr;
+
+            sb.Append("ReadElementString method");
+            sb.Append(Environment.NewLine);
+            //Open XmlReader
+            rdr = XmlReader.Create(GetEmployeesFile());
+            rdr.ReadStartElement("Employees");
+            rdr.ReadStartElement("Employee");
+            //Checkes the node equals to "id" and reads next text element
+            sb.Append("id=" + rdr.ReadElementString("id"));
+            sb.Append(Environment.NewLine);
+            sb.Append("FirstName=" + rdr.ReadElementString("FirstName"));
+            sb.Append(Environment.NewLine);
+
+            //Reads to the end, skips the rest of document
+            while (rdr.Read()) ;
             rdr.Close();
             rdr.Dispose();
 
