@@ -56,49 +56,7 @@ namespace FirstXMLProject
                 //Move to '<Employee>' element 
                 rdr.Read();
                 if (rdr.LocalName.Equals("Employee") && rdr.NamespaceURI.Equals(""))
-                {
-
-                    /*//Skip over CRLF (Carriage Return / Line Feed)
-                    rdr.Read();
-                    //Move to '<id>' Element               
-                    rdr.Read();
-
-                    if (rdr.LocalName.Equals("id") && rdr.NamespaceURI.Equals(""))
-                    {
-                        //Move to the value of <id>
-                        rdr.Read();
-                        sb.AppendFormat("id={0}", rdr.Value);
-                        sb.Append(Environment.NewLine);
-                        //Move to '</id>' Element
-                        rdr.Read();
-                        //Skip over CRLF (Carriage Return / Line Feed)
-                        rdr.Read();
-                    }
-                    else
-                    {
-                        sb.Append("Can't find <id> Element");
-                        sb.Append(Environment.NewLine);
-                    }
-
-                    //Move to '<FirstName>' Element               
-                    rdr.Read();
-                    if (rdr.LocalName.Equals("FirstName") && rdr.NamespaceURI.Equals(""))
-                    {
-                        //Move to the value of <FirstName>
-                        rdr.Read();
-                        sb.AppendFormat("FirstName={0}", rdr.Value);
-                        sb.Append(Environment.NewLine);
-                        //Move to '</FirstName>' Element
-                        rdr.Read();
-                        //Skip over CRLF (Carriage Return / Line Feed)
-                        rdr.Read();
-                    }
-                    else
-                    {
-                        sb.Append("Can't find <FirstName> Element");
-                        sb.Append(Environment.NewLine);
-                    }
-                    */
+                {                   
                     sb.Append(ReadEmployeeDetails(rdr));
                 }
                 else
